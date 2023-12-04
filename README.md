@@ -10,18 +10,28 @@
   - 하지만 캔위성 개발부터 고도 상승, 임무 수행, 낙하까지 이러한 과정은 복잡하고 시간이 많이 소요된다. 뿐만 아니라, 실제로 캔위성을 발사하는 것은 제한적이고 어려운 작업이며, 이에 따른 위험 요소도 배제할 수 없음
 - ### 해결책
   - 실제 캔위성에서 데이터를 지상국에 전송하는 것처럼 가상 환경에서 시뮬레이션 함으로써, 위성 환경에서의 문제 상황을 예측하고, 적절한 해결책을 마련하여 지상국 소프트웨어 개발 과정에서 도움을 받을 수 있음
-    
-  
+
+
 ## System Design
+  - ### CanSat
+    - 발사 및 임무 운용에 필요한 위성 구성요소를 단순하게 구성하여 고공에서 짧은 시간동안 위성처럼 운용하는 특징을 가진 초소형 위성
+    <img width="386" alt="스크린샷 2023-12-04 오후 4 20 05" src="https://github.com/jihyung2/github/assets/108830942/c769376d-b320-4e3e-8ba8-c824c0a6efdc">
+    
   - ### System Requirements
     - 시뮬레이션을 활용하여 센서부에서 위성 서버로 들어오는 데이터를 가상화
     - 지상국 오픈소스 SW를 목표로, 확장 가능 형태 개발
 
+  - ### Can Development Process
+<img width="1105" alt="스크린샷 2023-12-04 오후 4 19 52" src="https://github.com/jihyung2/github/assets/108830942/f8db8e87-52f3-4af4-a956-34d9c99f20ce">
+    
   - ### System Architecture
 <img width="588" alt="스크린샷 2023-12-04 오후 4 20 21" src="https://github.com/jihyung2/github/assets/108830942/5a1a5226-f149-4c33-a0de-6595f7056eb6">
 
   - ### Data Flow
 ![dataflow](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/31579ebd-cd15-4169-bed6-7142f9fc6ceb)
+
+  - ### Proposed Method
+<img width="824" alt="스크린샷 2023-12-04 오후 4 20 48" src="https://github.com/jihyung2/github/assets/108830942/83610b4c-1d81-4f79-82c6-22bbfdb9a1f5">
 
   - ### Web Visualize sensor data
     ![실제 사진](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/3f8c0f9f-dc67-4c6e-aff4-4e92cc43924c)
