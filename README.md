@@ -69,7 +69,7 @@
 ![오픈소스 기반 캔위성 개발 키트를 위한 시뮬레이션 모델 및 환경_이지형001](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/7555e017-441b-43c4-ad50-8d00dd1bb8a8)
 ![오픈소스 기반 캔위성 개발 키트를 위한 시뮬레이션 모델 및 환경_이지형002](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/43b4d61d-a172-41d0-9a96-eb6915381039)
 
-- ### 시뮬레이션 학회 학부생 추계학술대회 경진대회 참가 확인서
+- ### 시뮬레이션 학회 추계학술대회 경진대회 참가 확인서
 ![이지형_시뮬학회 참가확인서_page-0001](https://github.com/jihyung2/github/assets/108830942/8d1bb657-37b2-4fff-bd5d-0f60be6af0ea)
 
 ## 개발 과정
