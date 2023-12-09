@@ -38,30 +38,4 @@ public class ImageService {
         return imageRepository.findAllIds();
     }
 
-    public List<ImageData> getDBByUserJson() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/user.json");
-        try {
-            List<Map<String, String>> userList = objectMapper.readValue(inputStream, List.class);
-            List<ImageData> imageDataList = new ArrayList<>();
-
-            for (Map<String, String> user : userList) {
-                String userid = user.get("userid");
-                List<ImageData> userImageDataList = getDBByUserid(userid);
-                imageDataList.addAll(userImageDataList);
-            }
-
-            return imageDataList;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return Collections.emptyList();
-    }
-    public List<ImageData> getDBByUserid(String userid) {
-        List<ImageData> imageDataList = imageRepository.findByUserid(userid);
-        return imageDataList;
-    }
-
 }

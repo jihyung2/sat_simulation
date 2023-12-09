@@ -32,13 +32,9 @@ public class LoginController {
         Map<String, String> userData = new HashMap<>();
         userData.put("userid", userId);
 
-        // Map을 List에 넣기
-        List<Map<String, String>> userDataList = new ArrayList<>();
-        userDataList.add(userData);
-
         try {
             // user.json 파일 경로를 적절하게 수정해주세요.
-            objectMapper.writeValue(new File("src/main/resources/user.json"), userDataList);
+            objectMapper.writeValue(new File("src/main/resources/user.json"), userData);
         } catch (IOException e) {
             e.printStackTrace();
         }

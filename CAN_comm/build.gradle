@@ -48,7 +48,7 @@ dependencies {
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.1' // 현재 MariaDB JDBC 드라이버 버전에 맞게 업데이트하세요
     implementation 'com.fazecast:jSerialComm:2.8.0' // Replace with the correct version if needed
-
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 }
 
 dependencyManagement {

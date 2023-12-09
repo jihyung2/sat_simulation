@@ -1,5 +1,6 @@
 package com.example.reuse_api.service;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.example.reuse_api.entity.AllStoreData;
 import com.example.reuse_api.repository.AllRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,35 +29,7 @@ public class AllService {
     public List<AllStoreData> getALLDB() {
         return allRepository.findAll();
     }
-    private Map<String, String> useridTypeMap;
-    public List<String> getSelDB() {
-        ObjectMapper objectMapper = new ObjectMapper();
-        InputStream inputStream = getClass().getResourceAsStream("/user.json");
-        try {
-            List<Map<String, String>> list = objectMapper.readValue(inputStream, List.class);
-            List<String> useridList = new ArrayList<>();
 
-            for (Map<String, String> map : list) {
-                String userid = map.get("userid");
-                // userid 값을 사용하여 작업 수행
-                // 예시: userid 값을 출력해보기
-                System.out.println(userid);
-                useridList.add(userid);
-            }
-
-            return useridList;
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return Collections.emptyList();
-    }
-
-
-    public AllStoreData getDBByUserid(String userid) {
-        return allRepository.findByUserid(userid);
-    }
 
 
 
