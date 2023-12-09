@@ -24,7 +24,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Cansat Monitoring</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -43,6 +43,131 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="bi bi-rocket-takeoff-fill text-light" style="font-size: 1.5rem;"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">Monitoring </div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" href="index.html">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>Dashboard</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Interface
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+               aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>Components</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Components:</h6>
+                    <a class="collapse-item" href="buttons.html">Buttons</a>
+                    <a class="collapse-item" href="cards.html">Cards</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+               aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Utilities</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                 data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Custom Utilities:</h6>
+                    <a class="collapse-item" href="utilities-color.html">Colors</a>
+                    <a class="collapse-item" href="utilities-border.html">Borders</a>
+                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Addons
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+               aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Pages</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Login Screens:</h6>
+                    <a class="collapse-item" href="login.html">Login</a>
+                    <a class="collapse-item" href="register.html">Register</a>
+                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                    <div class="collapse-divider"></div>
+                    <h6 class="collapse-header">Other Pages:</h6>
+                    <a class="collapse-item" href="404.html">404 Page</a>
+                    <a class="collapse-item" href="blank.html">Blank Page</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item">
+            <a class="nav-link" href="charts.html">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Charts</span></a>
+        </li>
+
+        <!-- Nav Item - Tables -->
+        <li class="nav-item">
+            <a class="nav-link" href="tables.html">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Tables</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+        <!-- Sidebar Message -->
+        <div class="sidebar-card d-none d-lg-flex">
+            <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+            <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+            <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+        </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
@@ -55,9 +180,6 @@
                     <i class="bi bi-rocket-takeoff-fill text-light" style="font-size: 1.5rem;"></i>
                     <span style="margin-left: 5px;"></span>
                     <a class="navbar-brand" href="/">Cansat Monitoring</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
@@ -270,12 +392,17 @@
                     </div>
                 </div>
 
+
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <div style="display: flex; align-items: center;">
                             <i class="bi bi-table text-primary" style="margin-right: 5px;"></i>
                             <h6 class="m-0 font-weight-bold text-primary">Data Tables</h6>
+                            <a href="#" id="exportButton" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                               style="margin-left: auto;">
+                                <i class="fas fa-download fa-sm text-white-50"></i> Export
+                            </a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -348,7 +475,6 @@
 <script>
     var chart; // 전역 변수로 선언
 
-    // 페이지 로드 시 첫 번째 센서의 데이터를 이용하여 그래프를 그리는 코드
     $(document).ready(function () {
         $.ajax({
             url: "/getDataTable",
@@ -379,80 +505,111 @@
                 dropdownMenu.innerHTML = ''; // 이전에 생성된 메뉴 항목을 제거
 
                 sensorNames.forEach(function (name) {
-                    var button = document.createElement('button');
-                    button.className = 'dropdown-item';
-                    button.type = 'button';
-                    button.textContent = name;
-                    dropdownMenu.appendChild(button);
+                    var div = document.createElement('div');
+                    div.className = 'form-check dropdown-item';
+
+                    var input = document.createElement('input');
+                    input.className = 'form-check-input';
+                    input.type = 'checkbox';
+                    input.id = 'check-' + name;
+                    input.dataset.name = name;
+
+                    var label = document.createElement('label');
+                    label.className = 'form-check-label';
+                    label.htmlFor = 'check-' + name;
+                    label.textContent = name;
+
+                    div.appendChild(input);
+                    div.appendChild(label);
+
+                    dropdownMenu.appendChild(div);
                 });
 
-                var dropdownMenuItems = document.querySelectorAll('.dropdown-item');
+                var checkboxes = document.querySelectorAll('.form-check-input');
 
-                dropdownMenuItems.forEach(function (item) {
-                    item.addEventListener('click', function (e) {
-                        var sensorName = e.target.textContent;
-                        drawGraph(data, sensorName);
+                checkboxes.forEach(function (checkbox) {
+                    checkbox.addEventListener('change', function (e) {
+                        var selectedNames = Array.from(checkboxes)
+                            .filter(function (checkbox) {
+                                return checkbox.checked;
+                            })
+                            .map(function (checkbox) {
+                                return checkbox.dataset.name;
+                            });
+
+                        drawGraph(data, selectedNames);
                     });
                 });
             }
         });
     }
 
-    function drawGraph(data, sensorName) {
-        var sensorData = data.filter(function (item) {
-            return item.name === sensorName;
-        }).map(function (item) {
-            return Number(item.data); // 문자열을 숫자로 변환
+    function drawGraph(data, sensorNames) {
+        if (!Array.isArray(sensorNames)) {
+            sensorNames = [sensorNames];
+        }
+
+        var datasets = sensorNames.map(function (sensorName, index) {
+            var sensorData = data.filter(function (item) {
+                return item.name === sensorName;
+            }).map(function (item) {
+                return Number(item.data); // 문자열을 숫자로 변환
+            });
+
+            // 무작위 색상 생성
+            var color = 'rgba(' + Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ', ' + Math.floor(Math.random() * 256) + ', 1)';
+
+            return {
+                label: sensorName + ' Data',
+                data: sensorData,
+                borderColor: color, // 생성한 무작위 색상 사용
+                fill: false // 선 그래프 아래 영역을 채우지 않음
+            };
         });
 
         var sensorTimestamps = data.filter(function (item) {
-            return item.name === sensorName;
+            return sensorNames.includes(item.name);
         }).map(function (item) {
             var date = new Date(item.timestamp);
             return date.toLocaleTimeString(); // 시, 분, 초만 표시
         });
+        // x축이 계속 늘어나서 중복 제거
+        sensorTimestamps = Array.from(new Set(sensorTimestamps));
 
         var ctx = document.getElementById('myAreaChart').getContext('2d');
 
-        // 이전 차트가 있으면 업데이트, 없으면 새로 생성
+        // 이전 차트가 있으면 삭제하고 새로 생성
         if (chart) {
-            chart.data.labels = sensorTimestamps; // x축 레이블을 타임스탬프 데이터로 설정
-            chart.data.datasets[0].data = sensorData;
-            chart.data.datasets[0].label = sensorName + ' Data';
-            chart.update();
-        } else {
-            chart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: sensorTimestamps, // x축 레이블을 타임스탬프 데이터로 설정
-                    datasets: [{
-                        label: sensorName + ' Data',
-                        data: sensorData,
-                        borderColor: 'rgba(75, 192, 192, 1)',
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)'
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            type: 'time',
-                            time: {
-                                unit: 'second',
-                                displayFormats: {
-                                    second: 'HH:mm:ss'
-                                }
+            chart.destroy();
+        }
+
+        chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: sensorTimestamps, // x축 레이블을 타임스탬프 데이터로 설정
+                datasets: datasets
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: {
+                            unit: 'second',
+                            displayFormats: {
+                                second: 'HH:mm:ss'
                             }
-                        },
-                        y: {
-                            beginAtZero: true
                         }
+                    },
+                    y: {
+                        beginAtZero: true
                     }
                 }
-            });
-        }
+            }
+        });
     }
+
 </script>
 
 
@@ -502,6 +659,10 @@
 <!-- DataTable JavaScript -->
 <script src="vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+<!-- SheetJS library -->
+<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
 <script>
     // 새로운 테이블을 생성하는 함수
     function createNewTable(data) {
@@ -539,6 +700,34 @@
             }
         }
     });
+
+    $("#exportButton").on("click", function(event) {
+        event.preventDefault();
+
+        var table = $('#dataTable').DataTable();
+        var data = [];
+        var headers = [];
+        table.columns().header().each(function(header) {
+            headers.push($(header).text());
+        });
+        data.push(headers);
+
+        table.rows().every(function () {
+            var row = this.data();
+            data.push(Object.values(row));
+        });
+        var ws = XLSX.utils.aoa_to_sheet(data);
+
+        var wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+        var date = new Date();
+        var timestamp = date.getFullYear().toString() + (date.getMonth() + 1).toString().padStart(2, '0') + date.getDate().toString().padStart(2, '0') + "_" + date.getHours().toString().padStart(2, '0') + date.getMinutes().toString().padStart(2, '0') + date.getSeconds().toString().padStart(2, '0');
+        var fileName = timestamp + '_DataTable.xlsx';
+
+        XLSX.writeFile(wb, fileName);
+    });
+
 </script>
 
 </body>
