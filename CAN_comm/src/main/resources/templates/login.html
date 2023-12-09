@@ -34,28 +34,25 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0" style="height: 70vh;">
                         <!-- Nested Row within Card Body -->
-                        <div class="row" style="height: 70vh;">
+                        <div class="row h-100">
                             <div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-size: cover;"></div>
-                            <div class="col-lg-6">
-                                <div class="p-5 text-center">
+                            <div class="col-lg-6 d-flex align-items-center">
+                                <div class="p-5 w-100 text-center">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">User Login</h1>
                                     </div>
                                     <form class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                   id="exampleInputEmail" aria-describedby="emailHelp"
-                                                   placeholder="Enter User ID...">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter User ID...">
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <button class="btn btn-primary btn-user btn-block" id="loginButton">Login</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -69,6 +66,30 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Login JavaScript -->
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            var userId = document.getElementById('exampleInputEmail').value;
+
+            $.ajax({
+                url: '/user-id',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    userid: userId
+                }),
+                success: function(response) {
+                    console.log(response);
+                    window.location.href = "/";  // AJAX 요청이 성공한 후 페이지 이동
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    </script>
 
 </body>
 
