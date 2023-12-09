@@ -58,8 +58,8 @@ def sensor():
 
     # 시리얼 통신으로 메시지를 전송합니다.
     # 데이터 시작과 끝, 그리고 데이터 간 구분을 위한 문자를 추가합니다.
-    ser.write(('@'+arbitration_id_bin+message_bytes+'&').encode('utf-8'))  # 메시지 데이터
-    print(('@'+arbitration_id_bin+message_bytes+'&').encode('utf-8'))
+    ser.write(('@'+arbitration_id_bin+message_bytes+'$').encode('utf-8'))  # 메시지 데이터
+    print(('@'+arbitration_id_bin+message_bytes+'*').encode('utf-8'))
 
     return jsonify({'message': '수신 성공'}), 200
 

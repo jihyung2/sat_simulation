@@ -26,28 +26,30 @@ public class Serialdata {
 
     private StringBuilder buffer = new StringBuilder();
     private StringBuilder imagebuffer = new StringBuilder();
-//    public void readSerialData() {
-//        int retryCount = 0;
-//        while (true) {
-//            try {
-//                readFromSerialPort();
-//                break;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//                System.out.println("Failed to connect to the serial port. Retrying...");
-//                retryCount++;
-//                if (retryCount > MAX_RETRY_COUNT) {
-//                    System.out.println("Failed to connect to the serial port after " + MAX_RETRY_COUNT + " attempts. Please check the connection.");
-//                    break;
-//                }
-//                try {
-//                    Thread.sleep(RETRY_DELAY_MS);
-//                } catch (InterruptedException ie) {
-//                    ie.printStackTrace();
-//                }
-//            }
-//        }
-//    }
+    private StringBuilder voicebuffer = new StringBuilder();
+
+    public void readSerialData() {
+        int retryCount = 0;
+        while (true) {
+            try {
+                readFromSerialPort();
+                break;
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Failed to connect to the serial port. Retrying...");
+                retryCount++;
+                if (retryCount > MAX_RETRY_COUNT) {
+                    System.out.println("Failed to connect to the serial port after " + MAX_RETRY_COUNT + " attempts. Please check the connection.");
+                    break;
+                }
+                try {
+                    Thread.sleep(RETRY_DELAY_MS);
+                } catch (InterruptedException ie) {
+                    ie.printStackTrace();
+                }
+            }
+        }
+    }
 
     private void readFromSerialPort() throws Exception {
         SerialPort serialPort = SerialPort.getCommPort(SERIAL_PORT);
@@ -80,17 +82,30 @@ public class Serialdata {
     private void ruleBase(String canFrame) {
         System.out.println("ruleBase Received data: " + canFrame);
 
-        int startIndex = buffer.indexOf("@");
-        int endIndex = buffer.indexOf("&");
+        int startIndex = buffer.indexOf("$");
+        int endIndex = buffer.indexOf("*");
         if (startIndex >= 0 && endIndex > startIndex) {
             String message = buffer.substring(startIndex + 1, endIndex);
-            parseCANFrame(message);  // 이진수 문자열을 바이트 배열로 변환하여 파싱
-            buffer.delete(startIndex, endIndex + 1);
+            String standardIdBits = message.substring(0, 11);
+
+            if (standardIdBits == "00000010000"){ // 이미지 처리
+                ImageReceiver(message);
+                buffer.delete(startIndex, endIndex + 1);
+            }
+
+            else if (standardIdBits == "00000011111"){ // 음성 데이터 처리
+                VoiceReceiver(message);
+                buffer.delete(startIndex, endIndex + 1);
+            }
+            else {
+                SensorparseCANFrame(message);
+                buffer.delete(startIndex, endIndex + 1);
+            }
         }
     }
 
 
-    public void parseCANFrame(String canFrame) {
+    public void SensorparseCANFrame(String canFrame) {
         System.out.println(canFrame);
         // 처음 11비트는 표준 ID (센서 종류)
         String standardIdBits = canFrame.substring(0, 11);
@@ -99,30 +114,62 @@ public class Serialdata {
         // 그 이후 모든 비트는 데이터
         String dataBits = canFrame.substring(29);
 
-        if (standardIdBits == "00000010000"){
-            imagebuffer.append(dataBits);
-        }
-        else {
-            int intdata = Integer.parseInt(dataBits, 2);
-            // 표준 ID와 확장 ID를 비트 문자열에서 정수로 변환
+        int intdata = Integer.parseInt(dataBits, 2);
+        // 표준 ID와 확장 ID를 비트 문자열에서 정수로 변환
 
-            System.out.println("Standard ID: " + standardIdBits); // 표준 id는 센서 종류
-            System.out.println("Extended ID: " + extendedIdBits); // 확장 id는 위성 종류
-            System.out.println("Data Field: " + dataBits); // 센서 데이터
+        System.out.println("Standard ID: " + standardIdBits); // 표준 id는 센서 종류
+        System.out.println("Extended ID: " + extendedIdBits); // 확장 id는 위성 종류
+        System.out.println("Data Field: " + dataBits); // 센서 데이터
 
-            sendToRestApi(standardIdBits, extendedIdBits, String.valueOf(intdata));
-        }
+        sendToRestApi(standardIdBits, extendedIdBits, String.valueOf(intdata));
+
+    }
+
+    public void ImageReceiver(String data){
+        System.out.println(data);
+        // 처음 11비트는 표준 ID (센서 종류)
+        String standardIdBits = data.substring(0, 11);
+        // 그 다음 18비트는 확장 ID (위성 종류)
+        String extendedIdBits = data.substring(11, 29);
+        // 그 이후 모든 비트는 데이터
+        String dataBits = data.substring(29);
+
+        // 표준 ID와 확장 ID를 비트 문자열에서 정수로 변환
+
+        System.out.println("Standard ID: " + standardIdBits); // 표준 id는 센서 종류
+        System.out.println("Extended ID: " + extendedIdBits); // 확장 id는 위성 종류
+        System.out.println("Data Field: " + dataBits); // 센서 데이터
+
+        sendToRestApi(standardIdBits, extendedIdBits, dataBits);
+    }
+
+    public void VoiceReceiver(String data){
+        System.out.println(data);
+        // 처음 11비트는 표준 ID (센서 종류)
+        String standardIdBits = data.substring(0, 11);
+        // 그 다음 18비트는 확장 ID (위성 종류)
+        String extendedIdBits = data.substring(11, 29);
+        // 그 이후 모든 비트는 데이터
+        String dataBits = data.substring(29);
+        // 표준 ID와 확장 ID를 비트 문자열에서 정수로 변환
+
+        System.out.println("Standard ID: " + standardIdBits); // 표준 id는 센서 종류
+        System.out.println("Extended ID: " + extendedIdBits); // 확장 id는 위성 종류
+        System.out.println("Data Field: " + dataBits); // 센서 데이터
+
+        sendToRestApi(standardIdBits, extendedIdBits, dataBits);
+
     }
 
 
-    public String byteArrayToBinaryString(byte[] bytes) {
-        StringBuilder binaryString = new StringBuilder();
-        for (byte b : bytes) {
-            String binaryByte = String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
-            binaryString.append(binaryByte);
-        }
-        return binaryString.toString();
-    }
+//    public String byteArrayToBinaryString(byte[] bytes) {
+//        StringBuilder binaryString = new StringBuilder();
+//        for (byte b : bytes) {
+//            String binaryByte = String.format("%8s", Integer.toBinaryString(b & 0xFF)).replace(' ', '0');
+//            binaryString.append(binaryByte);
+//        }
+//        return binaryString.toString();
+//    }
 
     private void sendToRestApi(String Sensorname, String Satname, String SensorValue) {
         RestTemplate restTemplate = new RestTemplate();
