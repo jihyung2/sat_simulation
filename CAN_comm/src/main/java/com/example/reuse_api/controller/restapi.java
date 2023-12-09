@@ -63,8 +63,14 @@ public class restapi {
         myDatabaseComponent.ensureTableExists(satelliteId);
 
         if (sensorName.equals("Image")){
+            String satelliteIdimage = "K"+data.getSatname()+"Image";
             byte[] imageBytes = java.util.Base64.getDecoder().decode(streamData);
-            myDatabaseComponent.insertImageSensorData(satelliteId, sensorName, imageBytes);
+            myDatabaseComponent.insertImageSensorData(satelliteIdimage, sensorName, imageBytes);
+        }
+        else if (sensorName.equals("Voice")){
+            String satelliteIdvoice = "K"+data.getSatname()+"Voice";
+            byte[] imageBytes = java.util.Base64.getDecoder().decode(streamData);
+            myDatabaseComponent.insertVoiceSensorData(satelliteIdvoice, sensorName, imageBytes);
         }
         else {
             myDatabaseComponent.insertSensorData(satelliteId, sensorName, streamData);

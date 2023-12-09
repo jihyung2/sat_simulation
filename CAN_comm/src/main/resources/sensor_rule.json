@@ -18,5 +18,9 @@
   {
     "sensorType": "Dust",
     "sensorID": "00000000111"
+  },
+  {
+    "sensorType": "Voice",
+    "sensorID": "00000011111"
   }
 ]
