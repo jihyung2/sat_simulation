@@ -38,22 +38,20 @@ public class ImageService {
         return imageRepository.findAllIds();
     }
 
-    public List<String> getselImageDB() {
+    public List<ImageData> getDBByUserJson() {
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/user.json");
         try {
-            List<Map<String, String>> list = objectMapper.readValue(inputStream, List.class);
-            List<String> useridList = new ArrayList<>();
+            List<Map<String, String>> userList = objectMapper.readValue(inputStream, List.class);
+            List<ImageData> imageDataList = new ArrayList<>();
 
-            for (Map<String, String> map : list) {
-                String userid = map.get("userid");
-                // userid 값을 사용하여 작업 수행
-                // 예시: userid 값을 출력해보기
-                System.out.println(userid);
-                useridList.add(userid);
+            for (Map<String, String> user : userList) {
+                String userid = user.get("userid");
+                List<ImageData> userImageDataList = getDBByUserid(userid);
+                imageDataList.addAll(userImageDataList);
             }
 
-            return useridList;
+            return imageDataList;
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -62,8 +60,8 @@ public class ImageService {
         return Collections.emptyList();
     }
     public List<ImageData> getDBByUserid(String userid) {
-        return imageRepository.findByUserid(userid);
+        List<ImageData> imageDataList = imageRepository.findByUserid(userid);
+        return imageDataList;
     }
-
 
 }

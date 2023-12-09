@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class ImageDataController {
@@ -24,8 +21,8 @@ public class ImageDataController {
     private ImageService imageService;
 
     @GetMapping("/image-ids")
-    public @ResponseBody List<String> getImageIds() {
-        return imageService.getselImageDB();
+    public @ResponseBody List<ImageData> getImageIds() {
+        return imageService.getDBByUserJson();
     }
 
     @GetMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
