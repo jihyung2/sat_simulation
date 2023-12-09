@@ -1,13 +1,11 @@
 package com.example.reuse_api.controller;
 
-import com.example.reuse_api.component.MyDatabaseComponent;
-import com.example.reuse_api.entity.AllStoreData;
-import com.example.reuse_api.entity.ImageData;
-import com.example.reuse_api.entity.getsetdata;
-import com.example.reuse_api.entity.SatelliteData;
+//import com.example.reuse_api.component.MyDatabaseComponent;
+import com.example.reuse_api.entity.*;
 import com.example.reuse_api.service.AllService;
 import com.example.reuse_api.service.DBService;
 import com.example.reuse_api.service.ImageService;
+import com.example.reuse_api.service.VoiceService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -29,16 +27,26 @@ import java.util.regex.Pattern;
 // 가정, 위성에서 보낸 데이터 $(시작) %(종료) 기호로 구분하기
 // Map은 key와 value의 쌍으로 이루어진 데이터의 집합이다.
 // Key 값을 String, value값을 Object형으로 put 메소드를 통해 입력가능
+
+
 @RestController
 public class restapi {
+    @Autowired
+    private AllService allService;
 
-    private MyDatabaseComponent myDatabaseComponent;
+    @Autowired
+    private ImageService imageService;
+
+    @Autowired
+    private VoiceService voiceService;
+
+    //private MyDatabaseComponent myDatabaseComponent;
 
     private Map<String, String> sensorTypeMap;
 
     @Autowired
-    public restapi(MyDatabaseComponent myDatabaseComponent) { //Jdbc 템플릿 사용 의존성
-        this.myDatabaseComponent = myDatabaseComponent;
+    public restapi() { //
+        //this.myDatabaseComponent = myDatabaseComponent;
         ObjectMapper objectMapper = new ObjectMapper();
         InputStream inputStream = getClass().getResourceAsStream("/sensor_rule.json");
         try {
@@ -54,20 +62,36 @@ public class restapi {
 
     @PostMapping("/sensor")
     public String sensorData(@RequestBody getsetdata data) throws IOException {
-        String satelliteId = "K"+data.getSatname();
+        String satelliteId = data.getSatname();
         String sensorid = data.getSensorname();
         String streamData = data.getData();
 
+        AllStoreData allStoreData = new AllStoreData();
+        ImageData imageData = new ImageData();
+        VoiceData voiceData = new VoiceData();
+
         String sensorName = sensorTypeMap.get(sensorid); // json으로 id값을 문자열로 변환
 
-        myDatabaseComponent.ensureTableExists(satelliteId);
 
         if (sensorName.equals("Image")){
             byte[] imageBytes = java.util.Base64.getDecoder().decode(streamData);
-            myDatabaseComponent.insertImageSensorData(satelliteId, sensorName, imageBytes);
+            imageData.setName(sensorName);
+            imageData.setUserid(satelliteId);
+            imageData.setData(imageBytes);
+            imageService.saveimageDB(imageData);
         }
-        else {
-            myDatabaseComponent.insertSensorData(satelliteId, sensorName, streamData);
+        else if (sensorName.equals("Voice")){
+            byte[] voiceBytes = java.util.Base64.getDecoder().decode(streamData);
+            voiceData.setName(sensorName);
+            voiceData.setUserid(satelliteId);
+            voiceData.setData(voiceBytes);
+            voiceService.savevoiceDB(voiceData);
+        }
+        else { // 그외 나머지 센서들은 .DataType이 붙음
+            allStoreData.setName(sensorName);
+            allStoreData.setUserid(satelliteId);
+            allStoreData.setData(streamData);
+            allService.saveAllDB(allStoreData);
         }
         return "Sensor data processed successfully";
     }

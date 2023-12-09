@@ -5,10 +5,9 @@ import jakarta.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 @Entity
-@Table(name = "image_data")
-public class AllStoreData {
+@Table(name = "Voice_data")
+public class VoiceData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,17 +16,18 @@ public class AllStoreData {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "data")
-    private String data;
-
     @Column(name = "userid")
     private String userid;
+
+    @Column(name = "data", columnDefinition="MEDIUMBLOB")
+    @Lob // 이방법이 이미지 파일을 저장할 수 있게 blob방식
+    private byte[] data;
 
     @Column(name = "timestamp")
     private String timestamp;
 
 
-    public AllStoreData(String name, String data, String userid) {
+    public VoiceData(String name, String userid, byte[] data) {
         this.name = name;
         //this.satelliteData = satelliteDat;
         this.data = data;
@@ -37,7 +37,7 @@ public class AllStoreData {
     }
 
 
-    public AllStoreData() {
+    public VoiceData() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.timestamp = dateFormat.format(new Date());
     }
@@ -49,11 +49,12 @@ public class AllStoreData {
     public String getUserid() { return userid; }
 
     public void setUserid(String userid) { this.userid = userid; }
-    public String getData() {
+
+    public byte[] getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(byte[] data) {
         this.data = data;
     }
 

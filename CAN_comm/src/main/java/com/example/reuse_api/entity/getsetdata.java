@@ -7,6 +7,7 @@ public class getsetdata {
 
     private String satname;
 
+
     public getsetdata() {
 
     }

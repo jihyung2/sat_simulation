@@ -18,16 +18,20 @@ public class DataTableController {
 
     @GetMapping
     public List<Map<String, Object>> getDataTable() {
-        List<AllStoreData> allData = allService.getALLDB();
+        List<String> useridList = allService.getSelDB();
         List<Map<String, Object>> dataList = new ArrayList<>();
 
-        for (AllStoreData data : allData) {
-            Map<String, Object> mapData = new LinkedHashMap<>();
-            mapData.put("id", data.getId());
-            mapData.put("name", data.getName());
-            mapData.put("data", data.getData());
-            mapData.put("timestamp", data.getTimestamp());
-            dataList.add(mapData);
+        for (String userid : useridList) {
+            AllStoreData data = allService.getDBByUserid(userid);
+
+            if (data != null) {
+                Map<String, Object> mapData = new LinkedHashMap<>();
+                mapData.put("userid", data.getUserid());
+                mapData.put("name", data.getName());
+                mapData.put("data", data.getData());
+                mapData.put("timestamp", data.getTimestamp());
+                dataList.add(mapData);
+            }
         }
 
         return dataList;
