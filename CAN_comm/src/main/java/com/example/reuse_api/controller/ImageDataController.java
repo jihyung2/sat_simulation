@@ -24,8 +24,8 @@ public class ImageDataController {
     private ImageService imageService;
 
     @GetMapping("/image-ids")
-    public @ResponseBody List<Long> getImageIds() {
-        return imageService.getAllImageIds();
+    public @ResponseBody List<String> getImageIds() {
+        return imageService.getselImageDB();
     }
 
     @GetMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
