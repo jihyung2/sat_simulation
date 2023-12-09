@@ -7,7 +7,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "image_data")
+@Table(name = "sensor_all_data")
 public class AllStoreData {
 
     @Id
