@@ -52,6 +52,9 @@ public class AllService {
 
         return Collections.emptyList();
     }
+    public AllStoreData getDBByUserid(String userid) {
+        return (AllStoreData) allRepository.findByUserid(userid);
+    }
 
 
 //    public List<AllStoreData> getDeleteDB(String name) { //Request에서 받은 삭제할 문제 이름을
