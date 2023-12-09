@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cansat Monitoring - Tables</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex justify-content-start" href="/">
+
+                <div class="sidebar-brand-text mx-3">Monitoring</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/login">
+                    <i class="bi bi-person-fill"></i>
+                    <span>Login</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="/graphs">
+                    <i class="bi bi-bar-chart-fill text-light"></i>
+                    <span>Charts</span></a>
+            </li>
+
+            <!-- Nav Item - Images -->
+            <li class="nav-item">
+                <a class="nav-link" href="/images">
+                    <i class="bi bi-images text-light"></i>
+                    <span>Images</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="/tables">
+                    <i class="bi bi-table text-light"></i>
+                    <span>Tables</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                    <div class="container-fluid">
+                        <i class="bi bi-rocket-takeoff-fill text-light" style="font-size: 1.5rem;"></i>
+                        <span style="margin-left: 5px;"></span>
+                        <a class="navbar-brand" href="/">Cansat Monitoring</a>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="https://github.com/jihyung2/reuse_api">Github Link</a>
+                                </li>
+                            </ul>
+                            <form class="d-none d-sm-inline-block form-inline ml-auto my-2 my-md-0 mw-100 navbar-search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search"
+                                           aria-label="Search" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-dark" type="button">
+                                            <i class="fas fa-search fa-sm"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid mt-4">
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <div style="display: flex; align-items: center;">
+                                <i class="bi bi-table text-primary" style="margin-right: 5px;"></i>
+                                <h6 class="m-0 font-weight-bold text-primary">Data Tables</h6>
+                                <a href="#" id="exportButton" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                                   style="margin-left: auto;">
+                                    <i class="fas fa-download fa-sm text-white-50"></i> Export
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Data</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                    </thead>
+                                    <tfoot>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Data</th>
+                                        <th>Timestamp</th>
+                                    </tr>
+                                    </tfoot>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- DataTable JavaScript -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- SheetJS library -->
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
+    <script>
+        // 새로운 테이블을 생성하는 함수
+        function createNewTable(data) {
+            var thead = '<tr>', tfoot = '<tr>';
+            for (var key in data[0]) {
+                thead += '<th>' + key + '</th>';
+                tfoot += '<th>' + key + '</th>';
+            }
+            thead += '</tr>';
+            tfoot += '</tr>';
+            $('#dataTable thead').html(thead);
+            $('#dataTable tfoot').html(tfoot);
+            var table = $('#dataTable').DataTable({
+                "data": data,
+                "columns": Object.keys(data[0]).map(function (key) {
+                    return {"data": key};
+                })
+            });
+        }
+
+        // Ajax 호출
+        $.ajax({
+            url: "/getDataTable",
+            method: "GET",
+            success: function (data) {
+                if ($.fn.dataTable.isDataTable('#dataTable')) {
+                    var table = $('#dataTable').DataTable();
+                    table.destroy();
+                    setTimeout(function () {
+                        createNewTable(data);  // 테이블 파괴 후 새 테이블 생성
+                    }, 0);
+                } else {
+                    createNewTable(data);
+                    // 처음 실행 시 테이블 생성
+                }
+            }
+        });
+
+        $("#exportButton").on("click", function(event) {
+            event.preventDefault();
+
+            var table = $('#dataTable').DataTable();
+            var data = [];
+            var headers = [];
+            table.columns().header().each(function(header) {
+                headers.push($(header).text());
+            });
+            data.push(headers);
+
+            table.rows().every(function () {
+                var row = this.data();
+                data.push(Object.values(row));
+            });
+            var ws = XLSX.utils.aoa_to_sheet(data);
+
+            var wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+
+            var date = new Date();
+            var timestamp = date.getFullYear().toString() + (date.getMonth() + 1).toString().padStart(2, '0') + date.getDate().toString().padStart(2, '0') + "_" + date.getHours().toString().padStart(2, '0') + date.getMinutes().toString().padStart(2, '0') + date.getSeconds().toString().padStart(2, '0');
+            var fileName = timestamp + '_DataTable.xlsx';
+
+            XLSX.writeFile(wb, fileName);
+        });
+
+    </script>
+
+</body>
+
+</html>

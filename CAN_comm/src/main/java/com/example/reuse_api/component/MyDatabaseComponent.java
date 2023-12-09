@@ -39,7 +39,6 @@ public class MyDatabaseComponent {
     private void createTable(String tableName) {
         jdbcTemplate.execute("CREATE TABLE " + tableName + " (id SERIAL PRIMARY KEY, name VARCHAR(255), data VARCHAR(255), timestamp TIMESTAMP)");
         jdbcTemplate.execute("CREATE TABLE " + tableName+"Image" + " (id SERIAL PRIMARY KEY, name VARCHAR(255), data MEDIUMBLOB, timestamp TIMESTAMP)");
-        jdbcTemplate.execute("CREATE TABLE " + tableName+"Voice" + " (id SERIAL PRIMARY KEY, name VARCHAR(255), data MEDIUMBLOB, timestamp TIMESTAMP)");
     }
 
     public void insertSensorData(String tableName, String sensorName, String streamData) {
@@ -50,9 +49,4 @@ public class MyDatabaseComponent {
         String sql = "INSERT INTO " + tableName+"Image" + " (name, data, timestamp) VALUES (?, ?, ?)";
         jdbcTemplate.update(sql, sensorName, streamData, new Date());
     }
-    public void insertVoiceSensorData(String tableName, String sensorName, byte[] streamData) {
-        String sql = "INSERT INTO " + tableName+"Voice" + " (name, data, timestamp) VALUES (?, ?, ?)";
-        jdbcTemplate.update(sql, sensorName, streamData, new Date());
-    }
-
 }
