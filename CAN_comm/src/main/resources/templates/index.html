@@ -36,6 +36,35 @@
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
+    <!-- WepSocket-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+    <script>
+        var socket = new SockJS('http://localhost:8080/my-websocket-endpoint');
+        var stompClient = Stomp.over(socket);
+
+        stompClient.connect({}, function(frame) {
+            console.log('Connected: ' + frame);
+            stompClient.send("/app/my-websocket-endpoint", {}, "Connection server.");
+            console.log("Sent: Connection server.");
+
+            stompClient.subscribe('/topic/db-updates', function(messageOutput) {
+                console.log("DB Update Message: " + messageOutput.body);
+                var data = JSON.parse(messageOutput.body);
+            });
+        });
+
+
+        socket.onmessage = function(event) {
+            console.log("Received: " + event.data);
+        };
+
+        socket.onclose = function(event) {
+            console.log("Connection closed.");
+        };
+    </script>
+
+
 </head>
 
 <body id="page-top">
@@ -318,15 +347,8 @@
                                                 data-bs-slide-to="2" aria-label="Slide 3"></button>
                                     </div>
                                     <div class="carousel-inner">
-                                        <div class="carousel-item active">
-                                            <img src="..." class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="..." class="d-block w-100" alt="...">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img src="..." class="d-block w-100" alt="...">
-                                        </div>
+                                        <div class="carousel-item active"> </div>
+                                        <div class="carousel-item"> </div>
                                     </div>
                                     <button class="carousel-control-prev" type="button"
                                             data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
