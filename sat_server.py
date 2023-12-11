@@ -4,23 +4,21 @@ import can
 import json
 import serial
 import base64
-from datetime import datetime
 import time
-import serial
 import base64
 from PIL import Image
 
 app = Flask(__name__)
 
 # sensor_rule.json 파일에서 센서 이름과 sensorID 매핑 정보를 읽어옵니다.
-with open('sensor_rule.json') as json_file:
+with open('/Users/leejihyung/Desktop/github/can_simulation/sat_simulation/sensor_rule.json') as json_file:
     sensor_rules = json.load(json_file)
 
 # 센서 이름을 표준 ID로 매핑 (sensorID를 정수로 변환)
 sensor_id_mapping = {rule['sensorType']: int(rule['sensorID'], 2) for rule in sensor_rules}
 
 # 시리얼 통신을 위한 설정
-ser = serial.Serial("COM3", 9600)
+ser = serial.Serial("/dev/cu.usbserial-A10NLRJC", 9600)
 
 @app.route('/sensor', methods=['POST'])
 def sensor():
@@ -64,30 +62,30 @@ def sensor():
 
     # 시리얼 통신으로 메시지를 전송합니다.
     # 데이터 시작과 끝, 그리고 데이터 간 구분을 위한 문자를 추가합니다.
-    ser.write(('@'+arbitration_id_bin+message_bytes+'$').encode('utf-8'))  # 메시지 데이터
-    print(('@'+arbitration_id_bin+message_bytes+'*').encode('utf-8'))
+    ser.write(('$'+arbitration_id_bin+message_bytes+'*').encode('utf-8'))  # 메시지 데이터
+    print(('$'+arbitration_id_bin+message_bytes+'*').encode('utf-8'))
 
     time.sleep(3)
     # 이미지 파일을 열고 RGBA 모드로 저장
-    image = Image.open("/Users/leejihyung/Downloads/s.jpeg").convert("RGB")
+    image = Image.open("/Users/leejihyung/Downloads/12.jpeg").convert("RGB")
 
     # 이미지 크기 조정
     image = resize_image(image, 400, 200)
 
     # JPEG 형식으로 저장된 이미지 파일을 바이트로 변환
     with image.copy() as resized_image:
-        resized_image.save("/Users/leejihyung/Downloads/s.jpeg", "JPEG", quality=70)
+        resized_image.save("/Users/leejihyung/Downloads/12.jpeg", "JPEG", quality=70)
 
     # JPEG로 저장된 이미지 파일을 바이트로 변환
-    with open("/Users/leejihyung/Downloads/s.jpeg", "rb") as file:
+    with open("/Users/leejihyung/Downloads/12.jpeg", "rb") as file:
         image_data = file.read()
 
     # 이미지 데이터를 Base64로 인코딩하여 문자열로 변환
     encoded_image = base64.b64encode(image_data).decode("utf-8")
 
     # 이미지 데이터를 문자열에 추가하여 데이터 전송
-    ser.write(('@'+arbitration_id_bin+encoded_image+'$').encode('utf-8'))
-    print(('@' + arbitration_id_bin + encoded_image + '*').encode('utf-8'))
+    ser.write(('$00000010000000000000000000001'+encoded_image+'*').encode('utf-8'))
+    print(('$' + arbitration_id_bin + encoded_image + '*').encode('utf-8'))
 
 
     return jsonify({'message': '수신 성공'}), 200
@@ -103,7 +101,7 @@ def resize_image(image, max_width, max_height):
     return image
 
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port=8050)
+    app.run(host='127.0.0.1', port=8100)
 
 
 

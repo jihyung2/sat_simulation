@@ -69,8 +69,8 @@ class PEx(BehaviorModelExecutor):
         if self.menu[self.index] == "Temperature":
             def sync_webhook_send(request_data):
                 now = datetime.datetime.now()
-                webhook_url = f"http://127.0.0.1:8050/sensor"
-                webhook_data = {"satname":"000000000000000111","sensorname": "Temperature", "value": request_data}
+                webhook_url = f"http://127.0.0.1:5000/sensor"
+                webhook_data = {"satname":"000000000000000001","sensorname": "Temperature", "value": request_data}
 
                 try:
                     response = requests.post(webhook_url, json=webhook_data)
@@ -88,8 +88,8 @@ class PEx(BehaviorModelExecutor):
         if self.menu[self.index] == "Pressure":
             def sync_webhook_send(request_data):
                 now = datetime.datetime.now()
-                webhook_url = f"http://127.0.0.1:8050/sensor"
-                webhook_data = {"satname":"000000000000000111","sensorname": "Pressure", "value": request_data}
+                webhook_url = f"http://127.0.0.1:5000/sensor"
+                webhook_data = {"satname":"000000000000000001","sensorname": "Pressure", "value": request_data}
 
                 try:
                     response = requests.post(webhook_url, json=webhook_data)
@@ -107,7 +107,7 @@ class PEx(BehaviorModelExecutor):
         if self.menu[self.index] == "Humidity":
             def sync_webhook_send(request_data):
                 now = datetime.datetime.now()
-                webhook_url = f"http://127.0.0.1:8050/sensor"
+                webhook_url = f"http://127.0.0.1:5000/sensor"
                 webhook_data = {"satname":"000000000000000001","sensorname": "Humidity", "value": request_data}
 
                 try:
@@ -126,7 +126,7 @@ class PEx(BehaviorModelExecutor):
         if self.menu[self.index] == "Dust":
             def sync_webhook_send(request_data):
                 now = datetime.datetime.now()
-                webhook_url = f"http://127.0.0.1:8050/sensor"
+                webhook_url = f"http://127.0.0.1:5000/sensor"
                 webhook_data = {"satname": "000000000000000001", "sensorname": "Dust", "value": request_data}
 
                 try:
