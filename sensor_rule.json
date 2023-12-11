@@ -1,0 +1,22 @@
+[
+  {
+    "sensorType": "Temperature",
+    "sensorID": "00000000001"
+  },
+  {
+    "sensorType": "Pressure",
+    "sensorID": "00000000100"
+  },
+  {
+    "sensorType": "Humidity",
+    "sensorID": "00000000101"
+  },
+  {
+    "sensorType": "Image",
+    "sensorID": "00000010000"
+  },
+  {
+    "sensorType": "Dust",
+    "sensorID": "00000000111"
+  }
+]
