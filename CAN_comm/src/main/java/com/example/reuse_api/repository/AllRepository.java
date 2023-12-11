@@ -7,7 +7,5 @@ import java.util.List;
 
 @Repository
 public interface AllRepository extends JpaRepository<AllStoreData, String> {
-    List<AllStoreData> findByName(String name);
-    AllStoreData findByUserid(String userid);
 }
 

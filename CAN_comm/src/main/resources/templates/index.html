@@ -39,30 +39,30 @@
     <!-- WepSocket-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.1/sockjs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-    <script>
-        var socket = new SockJS('http://localhost:8080/my-websocket-endpoint');
-        var stompClient = Stomp.over(socket);
+<!--    <script>-->
+<!--        var socket = new SockJS('http://localhost:8080/my-websocket-endpoint');-->
+<!--        var stompClient = Stomp.over(socket);-->
 
-        stompClient.connect({}, function(frame) {
-            console.log('Connected: ' + frame);
-            stompClient.send("/app/my-websocket-endpoint", {}, "Connection server.");
-            console.log("Sent: Connection server.");
+<!--        stompClient.connect({}, function(frame) {-->
+<!--            console.log('Connected: ' + frame);-->
+<!--            stompClient.send("/app/my-websocket-endpoint", {}, "Connection server.");-->
+<!--            console.log("Sent: Connection server.");-->
 
-            stompClient.subscribe('/topic/db-updates', function(messageOutput) {
-                console.log("DB Update Message: " + messageOutput.body);
-                var data = JSON.parse(messageOutput.body);
-            });
-        });
+<!--            stompClient.subscribe('/topic/db-updates', function(messageOutput) {-->
+<!--                console.log("DB Update Message: " + messageOutput.body);-->
+<!--                var data = JSON.parse(messageOutput.body);-->
+<!--            });-->
+<!--        });-->
 
 
-        socket.onmessage = function(event) {
-            console.log("Received: " + event.data);
-        };
+<!--        socket.onmessage = function(event) {-->
+<!--            console.log("Received: " + event.data);-->
+<!--        };-->
 
-        socket.onclose = function(event) {
-            console.log("Connection closed.");
-        };
-    </script>
+<!--        socket.onclose = function(event) {-->
+<!--            console.log("Connection closed.");-->
+<!--        };-->
+<!--    </script>-->
 
 
 </head>
@@ -616,8 +616,44 @@
             loadImage(currentIndex);
         });
     });
-</script>
 
+
+</script>
+<!-- 실시간 이미지 업데이트 코드 -->
+<script>
+    // 이미지를 표시할 이미지 요소의 ID를 설정합니다.
+    var imageElementId = "liveImage";
+
+    // WebSocket 연결
+    var socket = new SockJS('http://localhost:8080/my-websocket-endpoint');
+    var stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, function(frame) {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/db-updates', function(messageOutput) {
+            console.log("DB Update Message: " + messageOutput.body);
+            var data = JSON.parse(messageOutput.body);
+
+            // 새로운 이미지가 추가되었을 때 이미지 요소에 표시
+            if (data.hasOwnProperty("name") && data.name === "Image" && data.hasOwnProperty("data")) {
+                var img = new Image();
+                img.src = "data:image/jpeg;base64," + data.data;
+                img.className = "d-block w-100";
+                img.alt = "Live Image";
+                document.getElementById(imageElementId).innerHTML = ""; // 이미지 요소 초기화
+                document.getElementById(imageElementId).appendChild(img);
+            }
+        });
+    });
+
+    socket.onmessage = function(event) {
+        console.log("Received: " + event.data);
+    };
+
+    socket.onclose = function(event) {
+        console.log("Connection closed.");
+    };
+</script>
 
 <!-- DataTable JavaScript -->
 <script src="vendor/datatables/jquery.dataTables.min.js"></script>
@@ -690,6 +726,34 @@
 
         XLSX.writeFile(wb, fileName);
     });
+
+    // WebSocket 연결
+    // var socket = new SockJS('/my-websocket-endpoint');
+    var socket = new SockJS('http://localhost:8080/my-websocket-endpoint');
+    var stompClient = Stomp.over(socket);
+
+    stompClient.connect({}, function(frame) {
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/table-updates', function(messageOutput) {
+            console.log("Table Update Message: " + messageOutput.body);
+            var data = JSON.parse(messageOutput.body);
+
+            // 새로운 데이터가 추가되었을 때 테이블에 행 추가
+            if (data.hasOwnProperty("name") && data.name === "Data" && data.hasOwnProperty("data")) {
+                var table = $('#dataTable').DataTable();
+                table.row.add(data.data).draw();
+            }
+        });
+    });
+
+    socket.onmessage = function(event) {
+        console.log("Received: " + event.data);
+    };
+
+    socket.onclose = function(event) {
+        console.log("Connection closed.");
+    };
+</script>
 
 </script>
 

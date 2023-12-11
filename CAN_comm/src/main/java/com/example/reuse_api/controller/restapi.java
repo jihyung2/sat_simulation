@@ -1,5 +1,6 @@
 package com.example.reuse_api.controller;
 
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 //import com.example.reuse_api.component.MyDatabaseComponent;
 import com.example.reuse_api.entity.*;
 import com.example.reuse_api.service.AllService;
@@ -39,7 +40,9 @@ public class restapi {
     @Autowired
     private VoiceService voiceService;
 
-    //private MyDatabaseComponent myDatabaseComponent;
+    @Autowired
+    private SimpMessagingTemplate messagingTemplate; // SimpMessagingTemplate 주입
+
 
     private Map<String, String> sensorTypeMap;
 
@@ -58,6 +61,8 @@ public class restapi {
             e.printStackTrace();
         }
     }
+
+
 
     @PostMapping("/sensor")
     public String sensorData(@RequestBody getsetdata data) throws IOException {
@@ -78,6 +83,8 @@ public class restapi {
             imageData.setUserid(satelliteId);
             imageData.setData(imageBytes);
             imageService.saveimageDB(imageData);
+            messagingTemplate.convertAndSend("/topic/db-updates", imageData);
+
         }
         else if (sensorName.equals("Voice")){
             byte[] voiceBytes = java.util.Base64.getDecoder().decode(streamData);
@@ -85,12 +92,14 @@ public class restapi {
             voiceData.setUserid(satelliteId);
             voiceData.setData(voiceBytes);
             voiceService.savevoiceDB(voiceData);
+            messagingTemplate.convertAndSend("/topic/db-updates", voiceData);
         }
-        else { // 그외 나머지 센서들은 .DataType이 붙음
+        else { // 그외 나머지 센서
             allStoreData.setName(sensorName);
             allStoreData.setUserid(satelliteId);
             allStoreData.setData(streamData);
             allService.saveAllDB(allStoreData);
+            messagingTemplate.convertAndSend("/topic/db-updates", allStoreData);
         }
         return "Sensor data processed successfully";
     }

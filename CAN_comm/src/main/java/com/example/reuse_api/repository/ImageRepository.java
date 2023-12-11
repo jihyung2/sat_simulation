@@ -11,5 +11,4 @@ public interface ImageRepository extends JpaRepository<ImageData, Long> {
     @Query("SELECT id FROM ImageData ")
     List<Long> findAllIds();
 
-    List<ImageData> findByUserid(String userid);
 }
