@@ -17,17 +17,17 @@ public class SerialDataScheduler {
         this.serialdata = serialdata;
     }
 
-//    @PostConstruct
-//    public void init() {
-//        new Thread(() -> {
-//            while (true) {
-//                serialdata.readSerialData();
-//                try {
-//                    Thread.sleep(100);  // 100밀리초 대기
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
-//    }
+    @PostConstruct
+    public void init() {
+        new Thread(() -> {
+            while (true) {
+                serialdata.readSerialData();
+                try {
+                    Thread.sleep(100);  // 100밀리초 대기
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
 }
