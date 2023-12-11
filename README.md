@@ -336,7 +336,7 @@ Image_data - id, data, name, timestamp, userid
 3) 데이터베이스 표 - 원하는 값 검색 가능, export 기능으로 추출 가능
 4) 이미지 - 사용자가 입력한 위성의 id값이 포함된 이미지만 출력, 왼쪽 오른쪽 버튼을 클릭하여 사진을 넘길 수 있음
 
-### JDBC 사용법 ( 현재 작업물은 JPA만을 사용 )
+### JDBC 사용 공부 ( 현재 작업물은 JPA만을 사용 )
 package com.example.reuse_api.component;
 
 import org.springframework.beans.factory.annotation.Autowired;
