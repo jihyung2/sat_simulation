@@ -3,6 +3,12 @@ import datetime
 import can
 import json
 import serial
+import base64
+from datetime import datetime
+import time
+import serial
+import base64
+from PIL import Image
 
 app = Flask(__name__)
 
@@ -61,7 +67,46 @@ def sensor():
     ser.write(('@'+arbitration_id_bin+message_bytes+'$').encode('utf-8'))  # 메시지 데이터
     print(('@'+arbitration_id_bin+message_bytes+'*').encode('utf-8'))
 
+    time.sleep(3)
+    # 이미지 파일을 열고 RGBA 모드로 저장
+    image = Image.open("/Users/leejihyung/Downloads/s.jpeg").convert("RGB")
+
+    # 이미지 크기 조정
+    image = resize_image(image, 400, 200)
+
+    # JPEG 형식으로 저장된 이미지 파일을 바이트로 변환
+    with image.copy() as resized_image:
+        resized_image.save("/Users/leejihyung/Downloads/s.jpeg", "JPEG", quality=70)
+
+    # JPEG로 저장된 이미지 파일을 바이트로 변환
+    with open("/Users/leejihyung/Downloads/s.jpeg", "rb") as file:
+        image_data = file.read()
+
+    # 이미지 데이터를 Base64로 인코딩하여 문자열로 변환
+    encoded_image = base64.b64encode(image_data).decode("utf-8")
+
+    # 이미지 데이터를 문자열에 추가하여 데이터 전송
+    ser.write(('@'+arbitration_id_bin+encoded_image+'$').encode('utf-8'))
+    print(('@' + arbitration_id_bin + encoded_image + '*').encode('utf-8'))
+
+
     return jsonify({'message': '수신 성공'}), 200
+
+def resize_image(image, max_width, max_height):
+    width, height = image.size
+    if width > max_width or height > max_height:
+        # 가로, 세로 비율 유지하면서 크기 조정
+        ratio = min(max_width / width, max_height / height)
+        new_width = int(width * ratio)
+        new_height = int(height * ratio)
+        image = image.resize((new_width, new_height))
+    return image
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8050)
+
+
+
+
+
+
