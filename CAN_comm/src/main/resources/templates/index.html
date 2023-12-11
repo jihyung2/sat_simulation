@@ -630,7 +630,7 @@
 
     stompClient.connect({}, function(frame) {
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/db-updates', function(messageOutput) {
+        stompClient.subscribe('/topic/image-updates', function(messageOutput) {
             console.log("DB Update Message: " + messageOutput.body);
             var data = JSON.parse(messageOutput.body);
 

@@ -79,16 +79,16 @@ public class restapi {
 
         if (sensorName.equals("Image")){
             byte[] imageBytes = java.util.Base64.getDecoder().decode(streamData);
-            imageData.setName(sensorName);
+            imageData.setName("Image");
             imageData.setUserid(satelliteId);
             imageData.setData(imageBytes);
             imageService.saveimageDB(imageData);
-            messagingTemplate.convertAndSend("/topic/db-updates", imageData);
+            messagingTemplate.convertAndSend("/topic/image-updates", imageData);
 
         }
         else if (sensorName.equals("Voice")){
             byte[] voiceBytes = java.util.Base64.getDecoder().decode(streamData);
-            voiceData.setName(sensorName);
+            voiceData.setName("Voice");
             voiceData.setUserid(satelliteId);
             voiceData.setData(voiceBytes);
             voiceService.savevoiceDB(voiceData);
@@ -99,7 +99,7 @@ public class restapi {
             allStoreData.setUserid(satelliteId);
             allStoreData.setData(streamData);
             allService.saveAllDB(allStoreData);
-            messagingTemplate.convertAndSend("/topic/db-updates", allStoreData);
+            messagingTemplate.convertAndSend("/topic/table-updates", allStoreData);
         }
         return "Sensor data processed successfully";
     }

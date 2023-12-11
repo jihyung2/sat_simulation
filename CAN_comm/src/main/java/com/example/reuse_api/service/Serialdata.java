@@ -89,6 +89,7 @@ public class Serialdata {
             String standardIdBits = message.substring(0, 11);
 
             if (standardIdBits == "00000010000"){ // 이미지 처리
+                System.out.println(message);
                 ImageReceiver(message);
                 buffer.delete(startIndex, endIndex + 1);
             }
@@ -129,17 +130,13 @@ public class Serialdata {
         System.out.println(data);
         // 처음 11비트는 표준 ID (센서 종류)
         String standardIdBits = data.substring(0, 11);
+        System.out.println("Standard ID: " + standardIdBits);
         // 그 다음 18비트는 확장 ID (위성 종류)
         String extendedIdBits = data.substring(11, 29);
+        System.out.println("Extended ID: " + extendedIdBits);
         // 그 이후 모든 비트는 데이터
         String dataBits = data.substring(29);
-
-
-        // 표준 ID와 확장 ID를 비트 문자열에서 정수로 변환
-
-        System.out.println("Standard ID: " + standardIdBits); // 표준 id는 센서 종류
-        System.out.println("Extended ID: " + extendedIdBits); // 확장 id는 위성 종류
-        System.out.println("Data Field: " + dataBits); // 센서 데이터
+        System.out.println("Data Field: " + dataBits);
 
         sendToRestApi(standardIdBits, extendedIdBits, dataBits);
     }
