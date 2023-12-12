@@ -203,6 +203,7 @@
 <script src="js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="vendor/chart.js/Chart.min.js"></script>
 
 <!-- Graph JavaScript -->
@@ -283,11 +284,13 @@
             sensorNames = [sensorNames];
         }
 
-        var datasets = sensorNames.map(function (sensorName, index) {
-            var sensorData = data.filter(function (item) {
+        var datasets = sensorNames.map(function (sensorName) {
+            var filteredData = data.filter(function (item) {
                 return item.name === sensorName;
-            }).map(function (item) {
-                return Number(item.data); // 문자열을 숫자로 변환
+            });
+
+            var sensorData = filteredData.map(function (item) {
+                return {x: new Date(item.timestamp), y: Number(item.data)};
             });
 
             // 무작위 색상 생성
@@ -296,19 +299,11 @@
             return {
                 label: sensorName + ' Data',
                 data: sensorData,
-                borderColor: color, // 생성한 무작위 색상 사용
-                fill: false // 선 그래프 아래 영역을 채우지 않음
+                borderColor: color,
+                fill: false,
+                lineTension: 0.3
             };
         });
-
-        var sensorTimestamps = data.filter(function (item) {
-            return sensorNames.includes(item.name);
-        }).map(function (item) {
-            var date = new Date(item.timestamp);
-            return date.toLocaleTimeString(); // 시, 분, 초만 표시
-        });
-        // x축이 계속 늘어나서 중복 제거
-        sensorTimestamps = Array.from(new Set(sensorTimestamps));
 
         var ctx = document.getElementById('myAreaChart').getContext('2d');
 
@@ -320,32 +315,33 @@
         chart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: sensorTimestamps, // x축 레이블을 타임스탬프 데이터로 설정
                 datasets: datasets
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    x: {
+                    xAxes: [{
                         type: 'time',
                         time: {
                             unit: 'second',
                             displayFormats: {
                                 second: 'HH:mm:ss'
                             }
+                        },
+                        distribution: 'series' // x축 데이터를 datasets에서 순서대로 가져옴
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
                         }
-                    },
-                    y: {
-                        beginAtZero: true
-                    }
+                    }]
                 }
             }
         });
     }
 
 </script>
-
 
 </body>
 
