@@ -1,12 +1,15 @@
 package com.example.reuse_api.service;
 
+//import com.example.reuse_api.controller.WebSocketController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fazecast.jSerialComm.SerialPort;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,17 +22,24 @@ import java.util.Map;
 
 @Service
 public class Serialdata {
-    private static final String SERIAL_PORT = "/dev/cu.usbserial-A10NLRGZ";
+    private static final String SERIAL_PORT = "/dev/cu.usbserial-A10NLRJC";
     private static final String REST_API_SERVER = "http://127.0.0.1:8080/sensor";
     private static final int MAX_RETRY_COUNT = 5;
     private static final int RETRY_DELAY_MS = 2000;
 
+//    @Autowired
+//    private WebSocketController webSocketController; // WebSocketController 주입
+
     private StringBuilder buffer = new StringBuilder();
     private StringBuilder imagebuffer = new StringBuilder();
     private StringBuilder voicebuffer = new StringBuilder();
+//    @Autowired
+//    private SimpMessagingTemplate messagingTemplate; // SimpMessagingTemplate 주입
 
     public void readSerialData() {
         int retryCount = 0;
+//        webSocketController.sendDbUpdates();
+//        System.out.println("전송");
         while (true) {
             try {
                 readFromSerialPort();
