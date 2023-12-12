@@ -315,14 +315,14 @@ Image_data - id, data, name, timestamp, userid
    	- userid : 사용자가 지정한 고유의 id
     	- data : 이미지를 바이트로 변환한 MEDIUMBLOB
 
-Voice_data - id, data, name, timestamp, userid 
+Voice_data - id, data, name, timestamp, userid 
 	- id : 자동으로 증가하는 수, 기본키
  	- name : 캔 비트를 Json에 임베딩 시켜서 문자열로 변환한 센서이름, Voice 고정
   	- timestamp : 데이터가 들어온 시간 표시
    	- userid : 사용자가 지정한 고유의 id
     	- data : 음성데이터를 바이트로 변환한 MEDIUMBLOB
 
-Sensor_all_data - id, data, name, timestamp, userid 
+Sensor_all_data - id, data, name, timestamp, userid 
 	- id : 자동으로 증가하는 수, 기본키
  	- name : 캔 비트를 Json에 임베딩 시켜서 문자열로 변환한 센서이름
   	- timestamp : 데이터가 들어온 시간 표시
