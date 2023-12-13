@@ -95,6 +95,9 @@
 ![이지형_시뮬학회 참가확인서_page-0001](https://github.com/jihyung2/github/assets/108830942/8d1bb657-37b2-4fff-bd5d-0f60be6af0ea)
 
 - ### 시뮬레이션 학회 경진대회, 장려상 수상
+ ![IMG_1738](https://github.com/jihyung2/github/assets/108830942/67e367c5-77cb-439b-94fb-761a6c5cac2a)
+
+
 
 ## 개발 과정
 
