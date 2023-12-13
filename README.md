@@ -1,4 +1,4 @@
-<img width="824" alt="캔통신" src="https://github.com/jihyung2/sat_simulation/assets/108830942/58c76c1b-71f5-4a53-9f0b-aee3882f8543"># Sat_Simulation
+# Sat_Simulation
 
 **팀 구성**
 - 20181624 신희관 
