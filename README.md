@@ -1,4 +1,4 @@
-# Sat_Simulation
+<img width="824" alt="캔통신" src="https://github.com/jihyung2/sat_simulation/assets/108830942/58c76c1b-71f5-4a53-9f0b-aee3882f8543"># Sat_Simulation
 
 **팀 구성**
 - 20181624 신희관 
@@ -37,6 +37,27 @@
   - ### Web Visualize sensor data
     ![실제 사진](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/3f8c0f9f-dc67-4c6e-aff4-4e92cc43924c)
 
+ - ### 최종 시나리오
+   <img width="878" alt="최종시나리오" src="https://github.com/jihyung2/github/assets/108830942/6196e2d6-3133-4ffe-ad3a-b57d6746a02b">
+
+## 추가 기능
+- ### 그래프 겹치게
+  <img width="799" alt="그래프" src="https://github.com/jihyung2/github/assets/108830942/8890bc86-1941-4d9a-97f3-e5e3370f3f9c">
+
+  - ### 데이터베이스 추출
+   <img width="838" alt="추출" src="https://github.com/jihyung2/github/assets/108830942/0821e10c-43a4-4d42-970e-01a264b0ddc9">
+
+- ### 통신 방식
+  <img width="824" alt="캔통신" src="https://github.com/jihyung2/github/assets/108830942/9b6c80f4-7b47-4d81-9a23-a5065ce0c0b0">
+
+   - ### 사용자 구분
+     <img width="824" alt="사용자구분" src="https://github.com/jihyung2/github/assets/108830942/c567e980-3844-4521-a52e-4c31161b369d">
+
+- ### 사이드바 추가
+  <img width="853" alt="4번" src="https://github.com/jihyung2/github/assets/108830942/977cfa18-d949-42c1-8464-48ff1a2c1359">
+
+
+
 ## 💻 Tech Stack
 <h4> Platforms & Languages </h4>
 
@@ -72,6 +93,8 @@
 
 - ### 시뮬레이션 학회 추계학술대회 경진대회 참가 확인서
 ![이지형_시뮬학회 참가확인서_page-0001](https://github.com/jihyung2/github/assets/108830942/8d1bb657-37b2-4fff-bd5d-0f60be6af0ea)
+
+- ### 시뮬레이션 학회 경진대회, 장려상 수상
 
 ## 개발 과정
 
