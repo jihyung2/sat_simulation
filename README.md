@@ -96,6 +96,7 @@
 
 - ### 시뮬레이션 학회 경진대회, 장려상 수상
  ![IMG_1738](https://github.com/jihyung2/github/assets/108830942/67e367c5-77cb-439b-94fb-761a6c5cac2a)
+ ![jangsang](https://github.com/jihyung2/sat_simulation/assets/108830942/5331fae7-c27a-4495-a917-966d5321e98b)
 
 
 
