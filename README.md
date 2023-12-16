@@ -24,15 +24,12 @@
   - ### Can Development Process
 ![2_pro](https://github.com/jihyung2/sat_simulation/assets/108830942/a72027a2-a85b-4ef8-958f-851dedf2fc5a)
     
-  - ### System Architecture
 ![3_sys](https://github.com/jihyung2/sat_simulation/assets/108830942/7e4958fc-80ce-4e26-bbff-6b383c6ef0e8)
 
-  - ### Data Flow
 ![4_flow](https://github.com/jihyung2/sat_simulation/assets/108830942/d4dafc8c-945e-45df-a98b-aa6b4158e9b1)
 
+![5_method](https://github.com/jihyung2/sat_simulation/assets/108830942/2eba2648-5d65-4bba-be3b-d0939cb7d867)
 
-  - ### Proposed Method
-<img width="824" alt="스크린샷 2023-12-04 오후 4 20 48" src="https://github.com/jihyung2/github/assets/108830942/83610b4c-1d81-4f79-82c6-22bbfdb9a1f5">
 
  - ### Web Visualize sensor data
     ![실제 사진](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/3f8c0f9f-dc67-4c6e-aff4-4e92cc43924c)
