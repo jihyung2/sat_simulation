@@ -36,23 +36,20 @@
 ![7_sina](https://github.com/jihyung2/sat_simulation/assets/108830942/c8678082-9674-4d0d-9b61-67c7a0f64e16)
 
 ## 추가 기능
- - ### 그래프 겹치게
+ - ### 그래프 겹치게 볼 수 있게 추가
 ![8_graph](https://github.com/jihyung2/sat_simulation/assets/108830942/19393411-8a83-462a-8cd9-18d82c30ee44)
 
-
  - ### 데이터베이스 추출
-<img width="838" alt="추출" src="https://github.com/jihyung2/github/assets/108830942/0821e10c-43a4-4d42-970e-01a264b0ddc9">
+![9_database](https://github.com/jihyung2/sat_simulation/assets/108830942/3e1bc75b-dd9d-4fa4-9b5f-4f4854ccca28)
 
  - ### 통신 방식
-<img width="824" alt="캔통신" src="https://github.com/jihyung2/github/assets/108830942/9b6c80f4-7b47-4d81-9a23-a5065ce0c0b0">
+![10_can](https://github.com/jihyung2/sat_simulation/assets/108830942/661dc27b-7597-4cde-8d42-c05177b6ed4c)
 
  - ### 사용자 구분
-<img width="824" alt="사용자구분" src="https://github.com/jihyung2/github/assets/108830942/c567e980-3844-4521-a52e-4c31161b369d">
+![10_user](https://github.com/jihyung2/sat_simulation/assets/108830942/811ce958-48d2-4331-a4f3-e9624e9a86f9)
 
  - ### 사이드바 추가
-<img width="853" alt="4번" src="https://github.com/jihyung2/github/assets/108830942/977cfa18-d949-42c1-8464-48ff1a2c1359">
-
-
+![11_sidebar](https://github.com/jihyung2/sat_simulation/assets/108830942/14605c23-696e-480a-b9c3-9236b88fe50f)
 
 ## 💻 Tech Stack
 <h4> Platforms & Languages </h4>
@@ -84,15 +81,18 @@
   
 ## Project Outcome
 - ### 2023년 시뮬레이션 학회 논문
-![오픈소스 기반 캔위성 개발 키트를 위한 시뮬레이션 모델 및 환경_이지형001](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/7555e017-441b-43c4-ad50-8d00dd1bb8a8)
-![오픈소스 기반 캔위성 개발 키트를 위한 시뮬레이션 모델 및 환경_이지형002](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/43b4d61d-a172-41d0-9a96-eb6915381039)
+![12_front](https://github.com/jihyung2/sat_simulation/assets/108830942/3037a018-80fe-4a6c-aef7-0a1aca37536b)
+
+![13_front2](https://github.com/jihyung2/sat_simulation/assets/108830942/9363b866-1a53-4f95-a864-7249efb0f29a)
 
 - ### 시뮬레이션 학회 추계학술대회 경진대회 참가 확인서
-![이지형_시뮬학회 참가확인서_page-0001](https://github.com/jihyung2/github/assets/108830942/8d1bb657-37b2-4fff-bd5d-0f60be6af0ea)
+![14_hak](https://github.com/jihyung2/sat_simulation/assets/108830942/4a387928-3d2b-4a35-a76b-fb68b245b3ff)
+
 
 - ### 시뮬레이션 학회 경진대회, 장려상 수상
- ![IMG_1738](https://github.com/jihyung2/github/assets/108830942/67e367c5-77cb-439b-94fb-761a6c5cac2a)
- ![jangsang](https://github.com/jihyung2/sat_simulation/assets/108830942/5331fae7-c27a-4495-a917-966d5321e98b)
+![15_bal](https://github.com/jihyung2/sat_simulation/assets/108830942/66780aef-e647-45b4-ab2f-cb8d9b6ef8fd)
+
+![16_sang](https://github.com/jihyung2/sat_simulation/assets/108830942/36814e96-8e1a-4ff6-af9f-d82778cc5d36)
 
 
 
