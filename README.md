@@ -32,7 +32,6 @@
 
 ![6_vis](https://github.com/jihyung2/sat_simulation/assets/108830942/2344afb5-d75a-41a0-bc18-aa99fb57772c)
 
- - ### 최종 시나리오
 ![7_sina](https://github.com/jihyung2/sat_simulation/assets/108830942/c8678082-9674-4d0d-9b61-67c7a0f64e16)
 
 ## 추가 기능
