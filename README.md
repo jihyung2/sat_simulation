@@ -36,20 +36,15 @@
 ![7_sina](https://github.com/jihyung2/sat_simulation/assets/108830942/c8678082-9674-4d0d-9b61-67c7a0f64e16)
 
 ## 추가 기능
- - ### 그래프 겹치게 볼 수 있게 추가
-![8_graph](https://github.com/jihyung2/sat_simulation/assets/108830942/19393411-8a83-462a-8cd9-18d82c30ee44)
+ - ![8_graph](https://github.com/jihyung2/sat_simulation/assets/108830942/19393411-8a83-462a-8cd9-18d82c30ee44)
 
- - ### 데이터베이스 추출
-![9_database](https://github.com/jihyung2/sat_simulation/assets/108830942/3e1bc75b-dd9d-4fa4-9b5f-4f4854ccca28)
+ - ![9_database](https://github.com/jihyung2/sat_simulation/assets/108830942/3e1bc75b-dd9d-4fa4-9b5f-4f4854ccca28)
 
- - ### 통신 방식
-![10_can](https://github.com/jihyung2/sat_simulation/assets/108830942/661dc27b-7597-4cde-8d42-c05177b6ed4c)
+ - ![10_can](https://github.com/jihyung2/sat_simulation/assets/108830942/661dc27b-7597-4cde-8d42-c05177b6ed4c)
 
- - ### 사용자 구분
-![10_user](https://github.com/jihyung2/sat_simulation/assets/108830942/811ce958-48d2-4331-a4f3-e9624e9a86f9)
+ - ![10_user](https://github.com/jihyung2/sat_simulation/assets/108830942/811ce958-48d2-4331-a4f3-e9624e9a86f9)
 
- - ### 사이드바 추가
-![11_sidebar](https://github.com/jihyung2/sat_simulation/assets/108830942/14605c23-696e-480a-b9c3-9236b88fe50f)
+ - ![11_sidebar](https://github.com/jihyung2/sat_simulation/assets/108830942/14605c23-696e-480a-b9c3-9236b88fe50f)
 
 ## 💻 Tech Stack
 <h4> Platforms & Languages </h4>
