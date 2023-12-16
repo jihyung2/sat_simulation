@@ -22,13 +22,14 @@
     - 지상국 오픈소스 SW를 목표로, 확장 가능 형태 개발
 
   - ### Can Development Process
-<img width="1105" alt="스크린샷 2023-12-04 오후 4 19 52" src="https://github.com/jihyung2/github/assets/108830942/f8db8e87-52f3-4af4-a956-34d9c99f20ce">
+![2_pro](https://github.com/jihyung2/sat_simulation/assets/108830942/a72027a2-a85b-4ef8-958f-851dedf2fc5a)
     
   - ### System Architecture
-<img width="588" alt="스크린샷 2023-12-04 오후 4 20 21" src="https://github.com/jihyung2/github/assets/108830942/5a1a5226-f149-4c33-a0de-6595f7056eb6">
+![3_sys](https://github.com/jihyung2/sat_simulation/assets/108830942/7e4958fc-80ce-4e26-bbff-6b383c6ef0e8)
 
   - ### Data Flow
-![dataflow](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/31579ebd-cd15-4169-bed6-7142f9fc6ceb)
+![4_flow](https://github.com/jihyung2/sat_simulation/assets/108830942/d4dafc8c-945e-45df-a98b-aa6b4158e9b1)
+
 
   - ### Proposed Method
 <img width="824" alt="스크린샷 2023-12-04 오후 4 20 48" src="https://github.com/jihyung2/github/assets/108830942/83610b4c-1d81-4f79-82c6-22bbfdb9a1f5">
