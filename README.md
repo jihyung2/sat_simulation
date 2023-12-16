@@ -21,7 +21,7 @@
     - 시뮬레이션을 활용하여 센서부에서 위성 서버로 들어오는 데이터를 가상화
     - 지상국 오픈소스 SW를 목표로, 확장 가능 형태 개발
 
-  - ### Can Development Process
+  - ### Can Development
 ![2_pro](https://github.com/jihyung2/sat_simulation/assets/108830942/a72027a2-a85b-4ef8-958f-851dedf2fc5a)
     
 ![3_sys](https://github.com/jihyung2/sat_simulation/assets/108830942/7e4958fc-80ce-4e26-bbff-6b383c6ef0e8)
