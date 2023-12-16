@@ -15,7 +15,7 @@
 ## System Design
   - ### CanSat
     - 발사 및 임무 운용에 필요한 위성 구성요소를 단순하게 구성하여 고공에서 짧은 시간동안 위성처럼 운용하는 특징을 가진 초소형 위성
-   ![1_can](https://github.com/jihyung2/sat_simulation/assets/108830942/4bcd0d66-ae46-4e0f-aa1f-adb48575ec65)
+     ![1_can](https://github.com/jihyung2/sat_simulation/assets/108830942/4bcd0d66-ae46-4e0f-aa1f-adb48575ec65)
 
   - ### System Requirements
     - 시뮬레이션을 활용하여 센서부에서 위성 서버로 들어오는 데이터를 가상화
