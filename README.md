@@ -15,7 +15,7 @@
 ## System Design
   - ### CanSat
     - 발사 및 임무 운용에 필요한 위성 구성요소를 단순하게 구성하여 고공에서 짧은 시간동안 위성처럼 운용하는 특징을 가진 초소형 위성
-	![캔위성].(./cansat_image/1_can)
+	![캔위성].(./cansat_image/1_can.png)
     <img width="386" alt="스크린샷 2023-12-04 오후 4 20 05" src="https://github.com/jihyung2/github/assets/108830942/c769376d-b320-4e3e-8ba8-c824c0a6efdc">
     
   - ### System Requirements
