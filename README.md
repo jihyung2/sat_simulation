@@ -30,16 +30,15 @@
 
 ![5_method](https://github.com/jihyung2/sat_simulation/assets/108830942/2eba2648-5d65-4bba-be3b-d0939cb7d867)
 
-
- - ### Web Visualize sensor data
-    ![실제 사진](https://github.com/jihyung2/Simulation_Engine_for_Web-Based_Simulation_Environments/assets/108830942/3f8c0f9f-dc67-4c6e-aff4-4e92cc43924c)
+![6_vis](https://github.com/jihyung2/sat_simulation/assets/108830942/2344afb5-d75a-41a0-bc18-aa99fb57772c)
 
  - ### 최종 시나리오
-   <img width="878" alt="최종시나리오" src="https://github.com/jihyung2/github/assets/108830942/6196e2d6-3133-4ffe-ad3a-b57d6746a02b">
+![7_sina](https://github.com/jihyung2/sat_simulation/assets/108830942/c8678082-9674-4d0d-9b61-67c7a0f64e16)
 
 ## 추가 기능
  - ### 그래프 겹치게
-<img width="799" alt="그래프" src="https://github.com/jihyung2/github/assets/108830942/8890bc86-1941-4d9a-97f3-e5e3370f3f9c">
+![8_graph](https://github.com/jihyung2/sat_simulation/assets/108830942/19393411-8a83-462a-8cd9-18d82c30ee44)
+
 
  - ### 데이터베이스 추출
 <img width="838" alt="추출" src="https://github.com/jihyung2/github/assets/108830942/0821e10c-43a4-4d42-970e-01a264b0ddc9">
