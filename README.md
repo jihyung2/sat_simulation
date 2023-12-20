@@ -35,7 +35,7 @@
 
 ![7_sina](https://github.com/jihyung2/sat_simulation/assets/108830942/c8678082-9674-4d0d-9b61-67c7a0f64e16)
 
-## 추가 기능
+## 추가 기능 및 특징
   ![8_graph](https://github.com/jihyung2/sat_simulation/assets/108830942/19393411-8a83-462a-8cd9-18d82c30ee44)
 
   ![9_database](https://github.com/jihyung2/sat_simulation/assets/108830942/3e1bc75b-dd9d-4fa4-9b5f-4f4854ccca28)
