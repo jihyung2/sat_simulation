@@ -87,8 +87,7 @@
 - ### 시뮬레이션 학회 경진대회, 장려상 수상
 ![15_bal](https://github.com/jihyung2/sat_simulation/assets/108830942/66780aef-e647-45b4-ab2f-cb8d9b6ef8fd)
 
-![16_sang](https://github.com/jihyung2/sat_simulation/assets/108830942/36814e96-8e1a-4ff6-af9f-d82778cc5d36)
-
+![시뮬상장_page-0001](https://github.com/jihyung2/sat_simulation/assets/108830942/9048bdf8-050f-44a6-96ef-c6d875f9f667)
 
 
 ## 개발 과정
