@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <module type="JAVA_MODULE" version="4">
   <component name="Flask">
     <option name="enabled" value="true" />
@@ -7,6 +8,15 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="$USER_HOME$/anaconda3" jdkType="Python SDK" />
+=======
+<module type="PYTHON_MODULE" version="4">
+  <component name="Flask">
+    <option name="enabled" value="true" />
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+>>>>>>> 3cec6b9 (123)
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
